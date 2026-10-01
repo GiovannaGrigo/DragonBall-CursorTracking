@@ -1,0 +1,67 @@
+.character {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.head {
+  width: 220px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  background: #f2c49b;
+  border: 4px solid #222;
+  border-radius: 45% 45% 50% 50%;
+  transform-origin: center bottom;
+  transition: transform 0.08s linear;
+}
+
+.eye {
+  position: relative;
+
+  width: 55px;
+  height: 70px;
+
+  background: white;
+
+  border: 3px solid #222;
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  transform-origin: center;
+  transition: transform 0.08s ease;
+}
+
+.eye.blinking {
+  transform: scaleY(0.08);
+}
+
+.pupil {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 50%;
+  top: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+  background: #111;
+  border-radius: 50%;
+  transition: transform 0.05s linear;
+}
+
+.pupil {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 50%;
+  top: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+  background: #111;
+  border-radius: 50%;
+  transition: transform 0.05s linear;
+}

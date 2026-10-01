@@ -1,0 +1,21 @@
+<div class="character">
+  <div
+    class="head"
+    #head
+    [style.transform]="'rotate(' + headRotation() + 'deg)'"
+  >
+    <div class="eye" [class.blinking]="isBlinking()">
+      <div
+        class="pupil"
+        [style.transform]="'translate(' + pupilX() + 'px, ' + pupilY() + 'px)'"
+      ></div>
+    </div>
+
+    <div class="eye" [class.blinking]="isBlinking()">
+      <div
+        class="pupil"
+        [style.transform]="'translate(' + pupilX() + 'px, ' + pupilY() + 'px)'"
+      ></div>
+    </div>
+  </div>
+</div>

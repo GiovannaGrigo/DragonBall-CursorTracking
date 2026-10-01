@@ -6,9 +6,21 @@
 
   background: linear-gradient(
     to bottom,
-    #72c6ef 0%,
-    #b8e6ff 60%,
-    #74b84a 60%,
-    #4f9234 100%
+    #6ec6ff 0%,
+    #bde8ff 65%,
+    #8acb5a 65%,
+    #4f8f32 100%
   );
+}
+
+.debug {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 16px;
 }
