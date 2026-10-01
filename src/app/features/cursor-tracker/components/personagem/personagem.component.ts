@@ -43,7 +43,7 @@ export class PersonagemComponent implements AfterViewInit, OnDestroy {
   readonly headRotation = computed(() => {
     const dx = this.cursorPosition().x - this.headCenterX();
 
-    return this.clamp(dx / 80, -8, 8);
+    return this.clamp(dx / 140, -4, 4);
   });
 
   readonly headImageSrc = computed(() => {

@@ -1,37 +1,43 @@
 <div class="character">
-  <img
-    class="body"
-    src="assets/images/personagem/body.png"
-    alt="Corpo"
-  />
+  <div class="breathing-wrapper">
+    <img class="body" src="assets/images/personagem/body.png" alt="Corpo" />
 
-  <div class="head-position">
-    <div
-      class="head-wrapper"
-      #head
-      [style.transform]="'rotate(' + headRotation() + 'deg)'"
-    >
-      <img class="head-image" [src]="headImageSrc()" alt="Cabeça" />
+    <div class="head-position">
+      <div
+        class="head-wrapper"
+        #head
+        [style.transform]="'rotate(' + headRotation() + 'deg)'"
+      >
+        <img class="head-image" [src]="headImageSrc()" alt="Cabeça" />
 
-      @if (!isBlinking()) {
-        <div class="eye-socket left-eye">
-          <div
-            class="pupil"
-            [style.transform]="
-              'translate(' + pupilOffset().x + 'px, ' + pupilOffset().y + 'px)'
-            "
-          ></div>
-        </div>
+        @if (!isBlinking()) {
+          <div class="eye-socket left-eye">
+            <div
+              class="pupil"
+              [style.transform]="
+                'translate(' +
+                pupilOffset().x +
+                'px, ' +
+                pupilOffset().y +
+                'px)'
+              "
+            ></div>
+          </div>
 
-        <div class="eye-socket right-eye">
-          <div
-            class="pupil"
-            [style.transform]="
-              'translate(' + pupilOffset().x + 'px, ' + pupilOffset().y + 'px)'
-            "
-          ></div>
-        </div>
-      }
+          <div class="eye-socket right-eye">
+            <div
+              class="pupil"
+              [style.transform]="
+                'translate(' +
+                pupilOffset().x +
+                'px, ' +
+                pupilOffset().y +
+                'px)'
+              "
+            ></div>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </div>
