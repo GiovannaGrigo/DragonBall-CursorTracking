@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   OnDestroy,
   ViewChild,
   computed,
@@ -21,6 +22,11 @@ export class PersonagemComponent implements AfterViewInit, OnDestroy {
   @ViewChild("head")
   private headElement!: ElementRef<HTMLElement>;
 
+  @HostListener("window:resize")
+  onResize(): void {
+    this.updateHeadPosition();
+  }
+
   private readonly cursorTrackerService = inject(CursorTrackerService);
 
   readonly cursorPosition = this.cursorTrackerService.position;
@@ -32,22 +38,18 @@ export class PersonagemComponent implements AfterViewInit, OnDestroy {
 
   private blinkTimer?: ReturnType<typeof setTimeout>;
 
-  readonly pupilX = computed(() => {
-    const dx = this.cursorPosition().x - this.headCenterX();
-
-    return this.clamp(dx / 40, -8, 8);
-  });
-
-  readonly pupilY = computed(() => {
-    const dy = this.cursorPosition().y - this.headCenterY();
-
-    return this.clamp(dy / 40, -8, 8);
-  });
+  readonly pupilOffset = computed(() => this.calculatePupilOffset());
 
   readonly headRotation = computed(() => {
     const dx = this.cursorPosition().x - this.headCenterX();
 
     return this.clamp(dx / 80, -8, 8);
+  });
+
+  readonly headImageSrc = computed(() => {
+    return this.isBlinking()
+      ? "assets/images/personagem/head-closed.png"
+      : "assets/images/personagem/head-open.png";
   });
 
   ngAfterViewInit(): void {
@@ -59,6 +61,28 @@ export class PersonagemComponent implements AfterViewInit, OnDestroy {
     if (this.blinkTimer) {
       clearTimeout(this.blinkTimer);
     }
+  }
+
+  private calculatePupilOffset() {
+    const dx = this.cursorPosition().x - this.headCenterX();
+    const dy = this.cursorPosition().y - this.headCenterY();
+
+    const angle = Math.atan2(dy, dx);
+
+    const maxX = 7;
+    const maxYUp = 2;
+    const maxYDown = 5;
+    const baseY = 5;
+
+    const x = Math.cos(angle) * maxX;
+    const sin = Math.sin(angle);
+
+    const yMovement = sin < 0 ? sin * maxYUp : sin * maxYDown;
+
+    return {
+      x,
+      y: baseY + yMovement,
+    };
   }
 
   private scheduleBlink(): void {
