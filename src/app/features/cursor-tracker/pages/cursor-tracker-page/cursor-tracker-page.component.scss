@@ -1,0 +1,14 @@
+.scene {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    #72c6ef 0%,
+    #b8e6ff 60%,
+    #74b84a 60%,
+    #4f9234 100%
+  );
+}
