@@ -1,0 +1,72 @@
+:host {
+  display: block;
+}
+
+.collection-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  background: rgba(20, 20, 20, 0.55);
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.collection-button:hover {
+  transform: scale(1.05);
+  background: rgba(20, 20, 20, 0.72);
+  box-shadow: 0 0 10px rgba(255, 160, 0, 0.45);
+}
+
+.collection-button:active {
+  transform: scale(0.97);
+}
+
+.collection-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #ffd65a 0%,
+    #ff9d00 55%,
+    #e96a00 100%
+  );
+
+  color: #d32519;
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 8px rgba(255, 140, 0, 0.45);
+}
+
+.collection-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+}
+
+.collection-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.collection-count {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 800;
+}

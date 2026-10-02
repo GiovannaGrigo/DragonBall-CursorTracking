@@ -1,0 +1,33 @@
+<div class="modal-backdrop" (click)="onClose()">
+  <section class="collection-modal" (click)="stopPropagation($event)">
+    <button
+      type="button"
+      class="close-button"
+      aria-label="Fechar coleção"
+      (click)="onClose()"
+    >
+      ×
+    </button>
+
+    <h2>Suas Esferas</h2>
+
+    <div class="collection-grid">
+      @for (ball of dragonBalls(); track ball.id) {
+      <div class="collection-ball" [class.collected]="ball.collected">
+        @if (ball.collected) {
+        <img
+          [src]="getDragonBallImage(ball.stars)"
+          [alt]="'Esfera do Dragão de ' + ball.stars + ' estrelas'"
+        />
+        } @else {
+        <div class="ball-placeholder">?</div>
+        }
+
+        <span class="ball-number"> {{ ball.stars }} </span>
+      </div>
+      }
+    </div>
+
+    <div class="collection-total">{{ collectedCount }} / 7</div>
+  </section>
+</div>

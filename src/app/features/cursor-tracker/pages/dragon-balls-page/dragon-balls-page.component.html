@@ -1,0 +1,54 @@
+<main class="dragon-balls-page" (mousemove)="onMouseMove($event)">
+  <a
+    class="back-button"
+    routerLink="/"
+    aria-label="Voltar para a página inicial"
+  >
+    <span class="back-arrow">←</span>
+    <span>VOLTAR</span>
+  </a>
+
+  <div class="page-title">
+    <h1>Encontre as Esferas do Dragão!</h1>
+
+    <p>Explore o cenário e aproxime o cursor para encontrar as 7 esferas.</p>
+  </div>
+
+  <div class="collection-hud">
+    <app-collection-button
+      [collectedCount]="collectedCount()"
+      (opened)="openCollection()"
+    />
+  </div>
+
+  @for (ball of dragonBalls(); track ball.id) {
+    <app-dragon-ball
+      [ball]="ball"
+      [cursorPosition]="cursorPosition()"
+      (collected)="collectDragonBall($event)"
+    />
+  }
+
+  @if (allCollected()) {
+    <div class="shenlong-ready">
+      <div class="shenlong-message">
+        <span class="shenlong-title">
+          As sete Esferas do Dragão foram reunidas!
+        </span>
+
+        <span class="shenlong-subtitle"> Seu desejo pode ser realizado. </span>
+      </div>
+
+      <button type="button" class="shenlong-button" (click)="summonShenlong()">
+        Invocar Shenlong
+      </button>
+    </div>
+  }
+
+  @if (isCollectionOpen()) {
+    <app-dragon-ball-collection
+      [dragonBalls]="dragonBalls()"
+      (closed)="closeCollection()"
+    />
+  }
+</main>

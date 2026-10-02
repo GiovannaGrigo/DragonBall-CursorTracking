@@ -1,0 +1,16 @@
+<button
+  type="button"
+  class="collection-button"
+  (click)="onOpen()"
+  aria-label="Abrir coleção de Esferas do Dragão"
+>
+  <span class="collection-icon"> ★ </span>
+
+  <span class="collection-info">
+    <span class="collection-title"> Esferas </span>
+
+    <span class="collection-count">
+      {{ collectedCount() }} / {{ total() }}
+    </span>
+  </span>
+</button>

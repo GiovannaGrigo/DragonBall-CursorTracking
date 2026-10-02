@@ -1,0 +1,123 @@
+:host {
+  display: block;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+}
+
+.collection-modal {
+  position: relative;
+  width: min(90vw, 620px);
+  padding: 30px;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(28, 22, 18, 0.97),
+    rgba(55, 31, 8, 0.97)
+  );
+
+  color: white;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 165, 0, 0.25);
+}
+
+.collection-modal h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.close-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+}
+
+.collection-ball {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.collection-ball.collected {
+  opacity: 1;
+}
+
+.collection-ball.collected:hover {
+  transform: translateY(-3px);
+}
+
+.collection-ball img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 160, 0, 0.5));
+}
+
+.ball-placeholder {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.ball-number {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.collection-total {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffb52e;
+}

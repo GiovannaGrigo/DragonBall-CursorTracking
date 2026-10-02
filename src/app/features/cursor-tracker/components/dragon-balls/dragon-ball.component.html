@@ -1,0 +1,19 @@
+<button
+  class="dragon-ball"
+  type="button"
+  [class.normal]="state() === 'normal'"
+  [class.near]="state() === 'near'"
+  [class.very-near]="state() === 'very-near'"
+  [class.collected]="state() === 'collected'"
+  [style.left.%]="ball().x"
+  [style.top.%]="ball().y"
+  [style.width.px]="ball().size"
+  [style.height.px]="ball().size"
+  (click)="onCollect()"
+>
+  <img
+    class="dragon-ball-image"
+    [src]="imageSrc()"
+    [alt]="'Esfera do Dragão de ' + ball().stars + ' estrelas'"
+  />
+</button>
