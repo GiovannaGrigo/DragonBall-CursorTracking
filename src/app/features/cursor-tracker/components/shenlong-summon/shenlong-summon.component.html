@@ -1,0 +1,37 @@
+<section class="shenlong-scene">
+  <div class="scene-overlay"></div>
+
+  <div class="shenlong-container">
+    <img class="shenlong-image" [src]="shenlongImage()" alt="Shenlong" />
+  </div>
+
+  <div class="dialogue-area" (click)="skipDialogue()">
+    <div class="dialogue-name">SHENLONG</div>
+
+    <div class="dialogue-bubble">
+      <p>
+        {{ displayedMessage() }}
+
+        @if (isTalking()) {
+          <span class="typing-cursor"></span>
+        }
+      </p>
+
+      @if (isTalking()) {
+        <span class="skip-hint"> Clique para continuar </span>
+      }
+    </div>
+  </div>
+
+  @if (dialogueFinished()) {
+    <div class="wish-options">
+      <button type="button">Quero me tornar mais forte</button>
+
+      <button type="button">Quero aprender uma nova técnica</button>
+
+      <button type="button">Quero conhecer novos guerreiros</button>
+
+      <button type="button">Espalhe as Esferas novamente</button>
+    </div>
+  }
+</section>

@@ -29,7 +29,7 @@
     />
   }
 
-  @if (allCollected()) {
+  @if (allCollected() && !isShenlongSummoned()) {
     <div class="shenlong-ready">
       <div class="shenlong-message">
         <span class="shenlong-title">
@@ -43,6 +43,10 @@
         Invocar Shenlong
       </button>
     </div>
+  }
+
+  @if (isShenlongSummoned()) {
+    <app-shenlong-summon />
   }
 
   @if (isCollectionOpen()) {

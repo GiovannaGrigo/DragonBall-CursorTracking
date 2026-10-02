@@ -6,6 +6,7 @@ import { CollectionButtonComponent } from "../../components/colletcion-button/co
 import { DragonBall } from "../../models/dragon-ball.model";
 import { DragonBallCollectionComponent } from "../../components/dragon-ball-collection/dragon-ball-collection.component";
 import { RouterLink } from "@angular/router";
+import { ShenlongSummonComponent } from "../../components/shenlong-summon/shenlong-summon.component";
 
 @Component({
   selector: "app-dragon-balls-page",
@@ -15,6 +16,7 @@ import { RouterLink } from "@angular/router";
     DragonBallComponent,
     CollectionButtonComponent,
     DragonBallCollectionComponent,
+    ShenlongSummonComponent
   ],
   templateUrl: "./dragon-balls-page.component.html",
   styleUrl: "./dragon-balls-page.component.scss",
@@ -23,6 +25,8 @@ export class DragonBallsPageComponent {
   private readonly cursorTrackerService = inject(CursorTrackerService);
 
   readonly cursorPosition = this.cursorTrackerService.position;
+
+  readonly isShenlongSummoned = signal(false);
 
   readonly dragonBalls = signal<DragonBall[]>([
     {
@@ -127,7 +131,8 @@ export class DragonBallsPageComponent {
     if (!this.allCollected()) {
       return;
     }
-    
-    console.log("Invocar Shenlong");
+
+    this.isCollectionOpen.set(false);
+    this.isShenlongSummoned.set(true);
   }
 }
