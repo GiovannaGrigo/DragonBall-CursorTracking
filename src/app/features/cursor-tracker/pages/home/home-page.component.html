@@ -1,0 +1,13 @@
+<main class="home" (mousemove)="onMouseMove($event)">
+  <aside class="menu menu-left">
+    <app-side-menu [items]="leftMenu" side="left" />
+  </aside>
+
+  <section class="character-area">
+    <app-character />
+  </section>
+
+  <aside class="menu menu-right">
+    <app-side-menu [items]="rightMenu" side="right" />
+  </aside>
+</main>

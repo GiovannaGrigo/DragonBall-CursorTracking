@@ -1,0 +1,15 @@
+<nav
+  class="side-menu"
+  [class.side-menu-left]="side() === 'left'"
+  [class.side-menu-right]="side() === 'right'"
+>
+  @for (item of items(); track item.route) {
+    <a class="menu-item" [routerLink]="item.route">
+      <span class="menu-label">
+        {{ item.label }}
+      </span>
+
+      <span class="menu-line"></span>
+    </a>
+  }
+</nav>
